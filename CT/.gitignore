@@ -1,0 +1,17 @@
+# Ignore the target directory
+/target/
+
+# Ignore Cargo.lock if you are using a library
+# Cargo.lock should be checked in for applications
+# /Cargo.lock
+
+# Ignore backup files
+*~
+*.swp
+
+# Ignore IDE specific files (e.g., for Visual Studio Code)
+.vscode/
+
+# Ignore other build artifacts
+*.rs.bk
+
