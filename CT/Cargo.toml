@@ -6,5 +6,5 @@ edition = "2021"
 [dependencies]
 clap = "4.0"           # For command-line argument parsing
 petgraph = "0.6"       # For graph structures and algorithms
-graphviz = "0.7"       # For generating Graphviz outputs (if available)
 anyhow = "1.0"         # For better error handling
+graphviz-rust = "0.9.0"

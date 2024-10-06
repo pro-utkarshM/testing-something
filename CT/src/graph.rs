@@ -1,3 +1,4 @@
+use std::io::Write;
 use anyhow::{Context, Result};
 use petgraph::graph::{Graph, NodeIndex};
 use petgraph::dot::{Dot, Config};

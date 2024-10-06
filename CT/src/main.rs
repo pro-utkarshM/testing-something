@@ -8,26 +8,31 @@ mod type_checker;
 fn main() -> anyhow::Result<()> {
     let matches = Command::new("ct")
         .version("1.0")
-        .about("Something I am doing :Q")
+        .about("A Rust implementation of GCT")
         .arg(
             Arg::new("input")
                 .short('i')
                 .long("input")
-                .takes_value(true)
                 .required(true)
-                .about("Input file to process"),
+                .value_name("INPUT")
+                .help("Input file to process"),
         )
         .arg(
             Arg::new("destination_folder")
                 .short('d')
                 .long("destination_folder")
-                .takes_value(true)
-                .about("Output folder for results"),
+                .value_name("DESTINATION_FOLDER")
+                .help("Output folder for results"),
         )
         .get_matches();
 
-    let input_file = matches.value_of("input").unwrap();
-    let destination_folder = matches.value_of("destination_folder").unwrap_or("./output");
+    // Create a binding for the default value
+    let default_destination = "./output".to_string();
+    
+    let input_file = matches.get_one::<String>("input").unwrap();
+    
+    // Use the binding instead of creating a temporary value
+    let destination_folder = matches.get_one::<String>("destination_folder").unwrap_or(&default_destination);
 
     // Read and process the input file
     let input_data = fs::read_to_string(input_file)?;
